@@ -29,8 +29,20 @@ template<typename K, typename V>
 class ChainingHash : public Hash<K,V> {
 private:
 
+    struct node{
+        map<int,string> data;
+        node *next, *prev;
+    };
+
+    list<node> hashtable;
+
+
 public:
-    ChainingHash(int n = 11) {
+    ChainingHash(int n) {
+        
+        for (int x = 0; i < n; i++){
+            hashtable.push_back(NULL);
+        }
     }
 
     ~ChainingHash() {
@@ -38,7 +50,19 @@ public:
     }
 
     int size() {
-        return -1;
+        int size = 0;
+        for (int i = 0; i < hashtable.size(); i++){
+            if (hashtable[i] != NULL) {
+                size += 1;
+                if (node->next != NULL){
+                    while (node->next != NULL){
+                        size += 1;
+                        node = node->next;
+                    }
+                }
+            }
+        }
+        return;
     }
 
     V operator[](const K& key) {
@@ -46,6 +70,7 @@ public:
     }
 
     bool insert(const std::pair<K, V>& pair) {
+        
         return true;
     }
 
@@ -53,6 +78,10 @@ public:
     }
 
     void clear() {
+        
+        for (int x = 0; i < hashtable.size; i++){
+            hashtable[i] = NULL;
+        }
     }
 
     int bucket_count() {
